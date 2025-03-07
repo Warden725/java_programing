@@ -29,15 +29,6 @@ public class Projectmap {
         System.out.println("Student with ID " + id + " not found can't delete ");
         return false;
     }
-    private static boolean updateNewStudent(int id,int key,String newName){
-        if (studentInfo.containsKey(id)) {
-            studentInfo.put(key,newName);
-            System.out.println("Update success ! ");
-            return true;
-        }
-        System.out.println("Student with ID " + id + " not found can't Update  ");
-        return false;
-    }
     private static void home() {
         while (true) {
             System.out.println("""
@@ -62,30 +53,33 @@ public class Projectmap {
                     System.out.println(studentInfo);
                 }
                 case 2 -> {
-                    System.out.print("Enter ID for Search : ");
+                    System.out.print("Enter key for Search : ");
                     int id=new Scanner(System.in).nextInt();
                     searchStudentByKey(id);
                 }
                 case 3 -> {
-                    System.out.print("Enter ID for Delete : ");
+                    System.out.print("Enter key for Delete : ");
                     int id=new Scanner(System.in).nextInt();
                     removeStudentByKey(id);
                     System.out.println("Remove successfully");
                     System.out.println(studentInfo);
                 }
                 case 4 -> {
-                    System.out.print("Enter ID for Update : ");
+                    System.out.print("Enter key for Update : ");
                     int id=new Scanner(System.in).nextInt();
                     if(studentInfo.containsKey(id)){
-                        System.out.print("Enter new key : ");
-                        int key=new Scanner(System.in).nextInt();
                         System.out.print("Enter new name : ");
                         String newName=new Scanner(System.in).nextLine();
-                        updateNewStudent(id,key,newName);
+                        studentInfo.put(id,newName);
+                        System.out.println("update success ");
+                        System.out.println(studentInfo);
+                    }else{
+                        System.out.println("Key not found can't update\n");
                     }
                 }
                 case 5 -> {
                     System.out.println(studentInfo);
+                    System.out.println();
                 }
                 case 6 -> {System.exit(0);}
 
