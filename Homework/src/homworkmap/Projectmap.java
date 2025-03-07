@@ -1,11 +1,11 @@
-package hashmap;
+package homworkmap;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 
-public class ProjectMap {
+public class Projectmap {
     private static Map<Integer,String> studentInfo=new HashMap<>();
     private static boolean addNeStudentName(String newStudentName){
         int key=new Random().nextInt(100);
@@ -40,7 +40,7 @@ public class ProjectMap {
     }
     private static void home() {
         while (true) {
-        System.out.println("""
+            System.out.println("""
                 1.Add Student name
                 2.Search Student By ID
                 3.Delete Student By ID
@@ -48,7 +48,7 @@ public class ProjectMap {
                 5.show name student
                 6.Exit
                 """);
-        System.out.print("Plz chose Option : ");
+            System.out.print("Plz chose Option : ");
             switch (new Scanner(System.in).nextInt()) {
                 case 1 -> {
                     System.out.println("Student Record ");
